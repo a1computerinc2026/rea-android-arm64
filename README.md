@@ -106,6 +106,28 @@ Inside **OpenCode**, after the restart, REA exposes **255 tools** (`open_binary`
 
 ---
 
+## Optional providers, browser & other platforms
+
+Beyond the three core engines, extra REA providers can be enabled:
+
+```bash
+bash scripts/install-optional-providers.sh   # ADB, WABT, binwalk, bionic prlimit shim
+bash scripts/enable-arm64-capabilities.sh    # EVM, pwntools, Wakaru, TShark, sigrok
+bash scripts/setup-browser-cdp.sh            # browser/CDP configuration helper
+```
+
+`inspect_wasm_artifact`, `inspect_firmware_regions`, `extract_firmware` and the
+24 ADB device tools then work. Browser tools need a CDP endpoint on loopback;
+the helper script forwards one from another machine. See
+[docs/platform-support.md](docs/platform-support.md) for the full support
+matrix covering Android/arm64, macOS and iOS, including what cannot be
+installed on a phone. macOS setup is in `platform/macos/setup.sh` (run on a Mac).
+
+After changing provider settings, **restart OpenCode** so the MCP server picks
+up the new environment.
+
+---
+
 ## How the arm64 magic works (short version)
 
 1. **Ghidra's release only ships x86-64 decompiler code.** On arm64 the Java side runs
