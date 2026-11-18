@@ -51,7 +51,7 @@ open-source alternatives.
    ```bash
    pkg update -y
    pkg install -y git
-   git clone https://github.com/YOUR-USERNAME/rea-android-arm64.git
+   git clone https://github.com/a1computerinc2026/rea-android-arm64.git
    cd rea-android-arm64
    bash scripts/install.sh
    ```
